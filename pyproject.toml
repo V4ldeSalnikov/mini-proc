@@ -1,0 +1,11 @@
+[project]
+name = "mini-proc-depth"
+version = "0.1.0"
+description = "Minimal BlenderProc-like procedural scene generation pipeline for depth estimation experiments."
+requires-python = ">=3.11"
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[tool.uv]
+package = false
