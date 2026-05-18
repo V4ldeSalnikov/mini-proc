@@ -1,0 +1,22 @@
+scene:
+  scene_id: scene_000
+  room:
+    room_type: bedroom
+    width: 4.0
+    length: 5.0
+    height: 2.8
+  objects: []
+
+frame:
+  frame_id: frame_000
+  scene_id: scene_000
+  camera:
+    location: [0.0, -2.5, 1.5]
+    rotation: [1.2, 0.0, 0.0]
+    focal_length: 28.0
+  lights:
+    - light_type: AREA
+      location: [-1.4, -1.2, 2.4]
+      rotation: [0.0, 0.0, 0.0]
+      energy: 250.0
+      size: 0.8
