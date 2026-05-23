@@ -11,10 +11,15 @@ class RoomSpec:
 
 
 @dataclass
-class ObjectSpec:
+class AssetSpec:
     category: str
     asset_id: str
     asset_path: str
+
+
+@dataclass
+class ObjectSpec:
+    asset: AssetSpec
     location: Tuple[float, float, float]
     rotation: Tuple[float, float, float]
     scale: Tuple[float, float, float]

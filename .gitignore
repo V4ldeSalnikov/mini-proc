@@ -7,3 +7,8 @@ __pycache__/
 venv/
 
 outputs/
+
+report/
+
+assets/ikea_official/
+assets/pix3d/

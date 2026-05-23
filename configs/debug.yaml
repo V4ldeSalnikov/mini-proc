@@ -1,11 +1,15 @@
 scene:
   scene_id: scene_000
+  seed: 0
   room:
     room_type: bedroom
     width: 4.0
     length: 5.0
     height: 2.8
-  objects: []
+  objects:
+    - category: chair
+    - category: table
+    - category: sofa
 
 frame:
   frame_id: frame_000
