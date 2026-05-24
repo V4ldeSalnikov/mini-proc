@@ -37,7 +37,7 @@ def main() -> None:
                 seed=scene_seed + object_index,
             )
         )
-    objects = create_rule_layout(room, assets)
+    objects = create_rule_layout(room, assets, seed=scene_seed)
     camera = CameraSpec(
         location=tuple(camera_config["location"]),
         rotation=tuple(camera_config["rotation"]),

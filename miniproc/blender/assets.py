@@ -25,12 +25,45 @@ def list_pix3d_assets(category: str, pix3d_root: str = "assets/pix3d") -> list[A
 
 def get_pix3d_asset(category: str, asset_index: int = 0, pix3d_root: str = "assets/pix3d") -> AssetSpec:
     assets = list_pix3d_assets(category, pix3d_root)
-    return assets[asset_index]
+    return measure_asset(assets[asset_index])
 
 
 def sample_pix3d_asset(category: str, seed: int, pix3d_root: str = "assets/pix3d") -> AssetSpec:
     assets = list_pix3d_assets(category, pix3d_root)
-    return Random(seed).choice(assets)
+    return measure_asset(Random(seed).choice(assets))
+
+
+def measure_asset(asset: AssetSpec) -> AssetSpec:
+    return AssetSpec(
+        category=asset.category,
+        asset_id=asset.asset_id,
+        asset_path=asset.asset_path,
+        size=measure_obj_size(asset.asset_path),
+    )
+
+
+def measure_obj_size(obj_path: str | Path) -> tuple[float, float, float]:
+    min_x = min_y = min_z = float("inf")
+    max_x = max_y = max_z = float("-inf")
+
+    with Path(obj_path).open("r", errors="ignore") as file:
+        for line in file:
+            if line.startswith("v "):
+                _, x, y, z = line.split()[:4]
+                x = float(x)
+                y = float(y)
+                z = float(z)
+                min_x = min(min_x, x)
+                min_y = min(min_y, y)
+                min_z = min(min_z, z)
+                max_x = max(max_x, x)
+                max_y = max(max_y, y)
+                max_z = max(max_z, z)
+
+    width = max_x - min_x
+    depth = max_z - min_z
+    height = max_y - min_y
+    return (width, depth, height)
 
 
 def load_object(spec: ObjectSpec) -> list:

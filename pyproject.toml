@@ -4,7 +4,12 @@ version = "0.1.0"
 description = "Minimal BlenderProc-like procedural scene generation pipeline for depth estimation experiments."
 requires-python = ">=3.11"
 dependencies = [
+    "numpy>=1.26",
+    "opencv-python>=4.9",
+    "pillow>=10.0",
     "PyYAML>=6.0",
+    "torch>=2.2",
+    "torchvision>=0.17",
 ]
 
 [tool.uv]

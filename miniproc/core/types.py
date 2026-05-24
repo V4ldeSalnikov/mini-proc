@@ -15,6 +15,7 @@ class AssetSpec:
     category: str
     asset_id: str
     asset_path: str
+    size: Tuple[float, float, float] = (0.0, 0.0, 0.0)
 
 
 @dataclass

@@ -18,6 +18,7 @@ def render_rgb(output_path: str, resolution: tuple[int, int] = (640, 480)) -> No
     scene = bpy.context.scene
     scene.render.resolution_x = resolution[0]
     scene.render.resolution_y = resolution[1]
+    scene.use_nodes = False
     scene.render.image_settings.file_format = "PNG"
     scene.render.filepath = str(output_path)
 
